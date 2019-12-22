@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/nebullax.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Phisherator</title>
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class="row">
+        <div id="main" class="card">
+          <div class="card-content">
+            <span class="card-title">Phisherator
+              <span id="tTime" class="secondary-content"></span>
+              <span id="tDate" class="secondary-content"></span>
+            </span>          
+            <div class="row">
+              <form id="task-form" autocomplete="off">
+                <div class="input-field col s12">
+                  <input type="text" name='task' id='task'>
+                  <label for="task">Type a Phish song</label>
+                </div>
+              </div>
+                <input type="submit" value="Get Jams" class='btn'>
+              </form>
+            </div>
+          </div>
+          <div class="card-action">
+            <h5 id="task-title">Jams</h5>
+            <div class="input-field col s12">
+              <input type="text" name="filter" id="filter">
+              <label for="filter">Filter Tasks</label>
+            </div>
+            <ul class="collection"></ul>
+            <a href="#modal1" class="btn black modal-trigger waves-effect waves-light">Clear Tasks</a>
+          </div> 
+          <!-- Modal Structure -->
+            <!-- <div id="modal1" class="modal clearTaskModal">
+              <div class="modal-content">
+                <h5 class="center-align">Clear Tasks Confirmation</h5>
+                <p class="center-align">Are you sure you want to clear out all tasks?</p>
+              </div>
+              <div class="modal-footer modal-btns">
+                <a href="#!" class="modal-close clear-tasks waves-effect waves-green btn"><i class="material-icons left">delete_forever</i>Clear My Tasks</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn"><i class="material-icons left">cancel</i>Cancel</a>
+              </div>
+            </div>         -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>  
+  <script src="main.js"></script>
+ 
+
+</body>
+</html>
