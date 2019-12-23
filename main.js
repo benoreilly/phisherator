@@ -1,12 +1,12 @@
 // Define UI vars
 
-const form = document.querySelector('#task-form');
-const taskList = document.querySelector('.collection');
-const clearBtn = document.querySelector('.clear-tasks');
+
+const jamList = document.querySelector('.collection');
+
 const filter = document.querySelector('#filter');
-const taskInput = document.querySelector('#task');
+const songInput = document.querySelector('#song');
 const modalTrigger = document.querySelector('.modal-trigger');
-const checked = $('#priCheck').is(':checked');
+
 
 
 
@@ -34,206 +34,44 @@ function myTimer() {
 loadEventListeners();
 
 function loadEventListeners() {
-    // DOM load event
-    //document.addEventListener('DOMContentLoaded', getTasks);
-    //add task event
-    form.addEventListener('submit', addTask);
-    //remove task event
-    taskList.addEventListener('click', removeTask);
-    //open modal
-    modalTrigger.addEventListener('click', openModal);
-    // clear task event
-    clearBtn.addEventListener('click', clearTasks);
-    // filter
     filter.addEventListener('keyup', filterTasks);
-
 }
-
-
-
-// Get Tasks from LS
-
-// function getTasks(){
-//     let tasks;
-//     if(localStorage.getItem('tasks') === null){
-//         tasks = [];
-//     } else {
-//         tasks = JSON.parse(localStorage.getItem('tasks'));        
-//     }
-//     tasks.forEach(function(task){
-//         // create li element
-//         const li = document.createElement('li');
-//         // add class to it
-//         li.className = 'collection-item slideIn taskItem isNotChecked';
-        
-//         let taskItemText = document.createElement('span');
-//         taskItemText.className = 'taskContext context';
-//         taskItemText.innerText = task;
-//         li.appendChild(taskItemText);
-  
-//         //create new link element
-//         const link = document.createElement('a');
-//         // add class
-//         link.className = 'delete-item secondary-content';
-//         // add icon html
-//         link.innerHTML = '<i class="material-icons">check_circle</i>';
-//         // append the link to li
-//         li.appendChild(link);
-//         // append li to ul
-//         let checkedList = document.querySelectorAll('li.isChecked');
-//         let notCheckedList = document.querySelectorAll('li.isNotChecked');
-//         if (li.classList.contains('isChecked')){
-//             taskList.insertBefore(li, taskList.childNodes[0]);
-//         } else {
-//                 taskList.insertBefore(li, notCheckedList[0]);
-//         }
-//     });
-        
-// }
-
-// Add task function
-
-function addTask(e){
-    if(taskInput.value !== ''){
-        // create li element
-        const li = document.createElement('li');
-        // add class to it
-        li.className = 'collection-item slideIn taskItem isNotChecked';
-        // create span for text
-        let taskItemText = document.createElement('span');
-        taskItemText.className = 'taskContext context';
-        taskItemText.innerText = taskInput.value;
-        li.appendChild(taskItemText);
-
-        //create new link element
-        const link = document.createElement('a');
-        // add class
-        link.className = 'delete-item secondary-content';
-        // add icon html
-        link.innerHTML = '<i class="material-icons">play_circle_outline</i>';
-        // append the link to li
-        li.appendChild(link);
-
-        // append li to ul
-        
-        
-        let notCheckedList = document.querySelectorAll('li.isNotChecked');
-        
-        if (li.classList.contains('isChecked')){
-            taskList.insertBefore(li, taskList.childNodes[0]);
-        } else {
-                taskList.insertBefore(li, notCheckedList[0]);
-        }
-            
-        // store in local storage
-        
-        //storeTaskInLocalStorage();
-            
-
-        // clear input
-        taskInput.value = '';
-    }
-
-    e.preventDefault();
-    
-      
-}
-
-
-// Store in local storage
-
-function storeTaskInLocalStorage(task){
-    let tasks;
-    if(localStorage.getItem('tasks') === null){
-        tasks = [];    
-    } else {
-        tasks = JSON.parse(localStorage.getItem('tasks'));
-    }
-    
-    tasks.push(task);
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    
-}
-
-// Remove task function
-
-function removeTask(e){
-    if(e.target.parentElement.classList.contains('delete-item')){
-        e.target.parentElement.parentElement.classList.toggle('slideOut');
-        setTimeout(() => {
-            e.target.parentElement.parentElement.remove(); 
-        }, 500);
-    }  
-    
-    // remove from local storage
-    
-    removeTaskFromLocalStorage(e.target.parentElement.parentElement);
-
-    e.preventDefault();
-}
-
-
-// Remove from local storage function
-
-function removeTaskFromLocalStorage(taskItem){
-    
-    let tasks;
-    if(localStorage.getItem('tasks') === null){
-        tasks = [];    
-    } else {
-        tasks = JSON.parse(localStorage.getItem('tasks'));
-    }
- 
-    var taskPriCheck = taskItem.firstChild.nextSibling.textContent + "!";
-    tasks.forEach(function(task, index){
-        if(taskItem.firstChild.textContent === task) {
-            tasks.splice(index, 1);
-        } else if (taskPriCheck === task){
-            tasks.splice(index, 1);
-        }
-    });
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    
-}
-
 
 
 // Init modal
 
-document.addEventListener('DOMContentLoaded', function() {
-    $(document).ready(function(){
-        $('.modal').modal();
-    });
-})
+// document.addEventListener('DOMContentLoaded', function() {
+//     $(document).ready(function(){
+//         $('.modal').modal();
+//     });
+// })
 
-//Open clear task modal
+// //Open clear task modal
 
-function openModal(e){
-    //var instance = M.Modal.getInstance(elem);
-    //this.open();   
-    e.preventDefault();  
-}
+// function openModal(e){
+//     //var instance = M.Modal.getInstance(elem);
+//     //this.open();   
+//     e.preventDefault();  
+// }
 
 // Clear tasks function
 
-function clearTasks(e){
+// function clearTasks(e){
  
-    // Method A
-    // taskList.innerHTML = '';
+//     // Method A
+//     // jamList.innerHTML = '';
 
-    // Method B - faster
-    while(taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild);
-    }
-    // while there is still a first child (there is still something in the list) then remove it
-    // } else {
-    //     return false;
-    // }
+//     // Method B - faster
+//     while(jamList.firstChild) {
+//         jamList.removeChild(jamList.firstChild);
+//     }
+//     // while there is still a first child (there is still something in the list) then remove it
+//     // } else {
+//     //     return false;
+//     // }
 
-    localStorage.clear();
-}
+//     localStorage.clear();
+// }
 
 
 // Filter tasks

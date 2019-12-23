@@ -13,26 +13,19 @@ span.hightlight {
   font-weight: 600;
 }
 
-.card-title span,
-.weatherIcon {
-  font-size: 1.2rem;
-  margin-right: 10px; 
-}
+#tTime,
+#tDate {
+  font-size: 1.3rem;
+} 
 
-span.hp-Icon i.tiny {
-  vertical-align: text-bottom;
-  font-size: 1.2rem;
-}
-
-.card .card-content .card-title i.weatherIcon{
-  line-height: 16px;
-}
-
-#tTime::after,
 #tDate::after {
   content: " | ";
+}
+
+#tDate::after {
   font-size: 2rem;
   line-height: 16px;
+  margin-right: 4px;
 }
 
 @media screen and (max-width: 1080px){
@@ -44,29 +37,16 @@ span.hp-Icon i.tiny {
 }
 
 @media screen and (max-width: 1080px){
-  #tTime::after {
+  #tTime::before {
     content: "";
   }
 }
 
-@media screen and (max-width: 1080px){
-  .weather-data {
-    display: none;
-  }
-}
 
-.collection .taskItem {
+.collection .songItem {
     background-color: #eee;
 }
 
-.collection .taskItem.isChecked {
-  background-color: rgba(201, 68, 58, 0.5);
-  font-weight: 500;
-}
-
-.priorityCheck {
-  margin-bottom: 10px;
-}
 
 ul.collection {
   margin-bottom: 20px !important;
@@ -76,57 +56,6 @@ ul.collection {
   cursor: pointer;
 }
 
-.slideIn {
-    animation-name: slideIn;
-    animation-duration: 0.5s;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-timing-function: linear;
-}
-
-@keyframes slideIn{
-  from {
-    margin-right: 100%;
-    width: 0;
-  }
-
-  to {
-    margin-right: 100%;
-    width: 100%;
-  }
-}
-
-.slideOut {
-  /* background-color: #26a69a; */
-  background-image: linear-gradient(to left,
-  rgba(15, 65, 60, .9) 25%,
-  rgba(15, 65, 60, .5) 50%,
-  rgba(15, 65, 60, .3) 75%);
-  color: white;
-  height: 100%;
-  width: 5%;
-  animation-name: slideout;
-  animation-duration: 0.5s;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  animation-timing-function: linear;
-}
-
-@keyframes slideout{
-  from {
-    margin-left: 0%;
-    width: 100%;
-  }
-
-  to {
-    margin-left: 100%;
-    width: 100%;
-  }
-}
-
-#fact {
-  display:none;
-}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

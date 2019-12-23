@@ -1,94 +1,65 @@
 
-// ------------- Number Facts ----------------//
+ // request jamcharts
+ 
+//  var data = "{}";
 
-// let fact = document.querySelector('#fact');
-// let factText = document.querySelector('#factText');
+//  var xhr = new XMLHttpRequest();
+// //  xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+// //  xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+//  xhr.overrideMimeType("application/json");
 
-// let numberInput = document.querySelector('#numberInput');
-// numberInput.addEventListener('input', getFactFetch);
 
-// function getFactAjax(){
-//     let number = numberInput.value;
+//  xhr.addEventListener("readystatechange", function() {
+//      if(this.readyState === this.DONE){
+//          //console.log(this.responseText);
+//      }
+//  });
 
-//     let xhr = new XMLHttpRequest();
-//     xhr.open('GET', 'http://numbersapi.com/'+number);
+//  xhr.open("GET", "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA", true);
 
-//     xhr.onload = function(){
-//         if(this.status == 200 && number != ''){
-//             fact.style.display = 'block';
-//             factText.innerText = this.responseText;
-//         }
-//     }
+//  xhr.send(data);
 
-//     xhr.send();
-// }
 
-// function getFactFetch(){
-//     let number = numberInput.value;
 
-//     fetch('http://numbersapi.com/'+number)
-//         .then(response => response.text())
-//         .then(data => {
-//             if(number != ''){
-//                 fact.style.display = 'block';
-//                 factText.innerText = data;
-//             } else {
-//                 fact.style.display = 'none';
-//             }
-            
-//         })
-//         .catch(err => console.log(err));
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
+  "method": "GET",
+  "headers": {},
+  "data": "{}"
+}
+
+
+
+$.ajax(settings).done(function (response) {
+    var jamInfo = response.response.data;
+    let jamCollection = document.querySelector('.collection');
+
+    for (let i = 0; i < jamInfo.length; i++) {
         
-// }
+        const li = document.createElement('li');
+        li.className = 'collection-item songItem';
 
+        let songItemSong = document.createElement('span');
+        songItemSong.className = 'songContext context';
 
+        let songTitle = jamInfo[i].song;
+        songItemSong.textContent = songTitle;
+        li.appendChild(songItemSong);
 
-
-//-------------Weather ---------------------------- //
-
-// let weatherData = document.querySelector('#weather-data');
-// let weatherCity = document.querySelector('#weather-city');
-// let weatherTemp = document.querySelector('#weather-temp');
-// let weatherDescription = document.querySelector('#weather-description');
-
-// function loadJSON(callback){
-
-//     let xobj = new XMLHttpRequest();
-//     xobj.overrideMimeType("application/json");
-//     xobj.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=Atlanta,us&appid=84f31defeb6290a61b56ea3d45ad79d9&units=metric', true);
-//     xobj.onreadystatechange = function () {
-//         if (xobj.readyState == 4 && xobj.status == "200") {
-            
-//             // .open will NOT return a value but simply returns undefined in async mode so use a callback
-//            callback(this.responseText);
-           
-
-//         }
-//     }
-    
-//     xobj.send(null);
-// }
-
-// // Call to function with anonymous callback
-// loadJSON(function(response) {
-//     // Do Something with the response e.g.
-//     jsonresponse = JSON.parse(response);
-//     weatherCity.innerText = jsonresponse.name;
-//     //convert celcius to farenheit
-//     var a = jsonresponse.main.temp;
-//     weatherTemp.innerText = Math.round(a*9/5+32)+String.fromCharCode(176)+ "F";
-//     weatherDescription.innerText = jsonresponse.weather[0].main;
-    
-//     let w = jsonresponse.weather[0].main; 
-//     if (w === "Clouds"){
-//         document.getElementById('weather-icon').innerHTML = '<i class="small material-icons weatherIcon secondary-content">wb_cloudy</i>';
-//     } else if (w === "Rain" || w === "Drizzle"){
-//         document.getElementById('weather-icon').innerHTML = '<span class="small material-icons weatherIcon secondary-content"><img src="img/weather-rainy.svg"></span>';
-//     } else {
-//         document.getElementById('weather-icon').innerHTML = '<i class="small material-icons weatherIcon secondary-content">wb_sunny</i>';
-//     }
-//   });
-
-
+        const link = document.createElement('a');
+        let songLink = jamInfo[i].link;
+        link.className = 'song-link secondary-content';
+        link.setAttribute('href', songLink);
+        link.setAttribute('target', '_blank');
+        link.innerHTML = '<i class="material-icons">launch</i>';
+        li.appendChild(link);
+       
         
+        jamCollection.appendChild(li);
+      }
+
+
+});
 
