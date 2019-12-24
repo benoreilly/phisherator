@@ -2,11 +2,9 @@
 
 
 const jamList = document.querySelector('.collection');
-
 const filter = document.querySelector('#filter');
 const songInput = document.querySelector('#song');
 const modalTrigger = document.querySelector('.modal-trigger');
-
 
 
 
@@ -27,6 +25,8 @@ function myTimer() {
     let t = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     var tTime = document.getElementById('tTime').innerText = t;
 }
+
+
 
 
 // Load event listeners
@@ -54,24 +54,6 @@ function loadEventListeners() {
 //     e.preventDefault();  
 // }
 
-// Clear tasks function
-
-// function clearTasks(e){
- 
-//     // Method A
-//     // jamList.innerHTML = '';
-
-//     // Method B - faster
-//     while(jamList.firstChild) {
-//         jamList.removeChild(jamList.firstChild);
-//     }
-//     // while there is still a first child (there is still something in the list) then remove it
-//     // } else {
-//     //     return false;
-//     // }
-
-//     localStorage.clear();
-// }
 
 
 // Filter tasks

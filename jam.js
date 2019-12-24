@@ -1,27 +1,8 @@
 
  // request jamcharts
  
-//  var data = "{}";
 
-//  var xhr = new XMLHttpRequest();
-// //  xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-// //  xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-//  xhr.overrideMimeType("application/json");
-
-
-//  xhr.addEventListener("readystatechange", function() {
-//      if(this.readyState === this.DONE){
-//          //console.log(this.responseText);
-//      }
-//  });
-
-//  xhr.open("GET", "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA", true);
-
-//  xhr.send(data);
-
-
-
-var settings = {
+var jamChartSettings = {
   "async": true,
   "crossDomain": true,
   "url": "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
@@ -32,7 +13,7 @@ var settings = {
 
 
 
-$.ajax(settings).done(function (response) {
+$.ajax(jamChartSettings).done(function (response) {
     var jamInfo = response.response.data;
     let jamCollection = document.querySelector('.collection');
 
@@ -60,6 +41,48 @@ $.ajax(settings).done(function (response) {
         jamCollection.appendChild(li);
       }
 
+});
+
+ // request recent setlist
+
+ let setListDate = document.querySelector('#setListDate');
+ let setListVenue = document.querySelector('#setListVenue');
+ 
+ let setListLocation = document.querySelector('#setListLocation');
+ let setListDetails = document.querySelector('#setListDetails');
+ //let setListNotes = document.querySelector('#setListNotes');
+ 
+
+ var setlistSettings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA",
+  "method": "GET",
+  "headers": {},
+  "data": "{}"
+}
+
+$.ajax(setlistSettings).done(function (response) {
+  let setListInfo = response.response.data[0];
+  let slDateShort = setListInfo.short_date;
+  let slDateLong = setListInfo.long_date;
+  let slVenue = setListInfo.venue;
+  let slLocation = setListInfo.location;
+  let slDetails = setListInfo.setlistdata;
+ // let slNotes = setListInfo.setlistnotes;
+  
+  
+  setListDate.innerText = slDateLong;
+
+  setListVenue.innerHTML = slVenue;
+  // console.log(slVenue.getAttributes());
+  //console.log(setListVenue.innerHTML.setAttribute('target', '_blank'));
+
+  setListLocation.innerText = slLocation;
+  setListDetails.innerHTML = slDetails;
+  //setListNotes.innerHTML = slNotes;
 
 });
+
+
 

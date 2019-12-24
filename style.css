@@ -3,6 +3,10 @@
     margin-top: 60px;
 }
 
+.card .card-content:nth-of-type(2){
+  border-top: 1px solid rgba(160,160,160,0.2);
+}
+
 mark {
   background-color: #80cbc4 ;
   font-weight: 600;
@@ -42,6 +46,15 @@ span.hightlight {
   }
 }
 
+.sl-data {
+  margin: 5px;
+}
+
+#setListDate {
+  color:#00796b;
+  font-size: 1.2rem;
+}
+
 
 .collection .songItem {
     background-color: #eee;
@@ -52,8 +65,8 @@ ul.collection {
   margin-bottom: 20px !important;
 }
 
-.delete-item:hover {
-  cursor: pointer;
+.song-link.secondary-content {
+  color: #26a69a !important;
 }
 
 
