@@ -99,3 +99,11 @@ input::-webkit-inner-spin-button {
     font-size: 0.8rem;
   }
 }
+
+/* Phish.com policy link */
+
+.policy a {
+  text-transform: none !important;
+  color: #26a69a !important;
+}
+
