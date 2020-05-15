@@ -5,9 +5,10 @@
 var jamChartSettings = {
   "async": true,
   "crossDomain": true,
+  // "crossOrigin": anonymous,
   "url": "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
-  "method": "GET",
-  "headers": {},
+  "method": "Get",
+  "headers": "{Access-Control-Allow-Origin: *}",
   "data": "{}"
 }
 
@@ -57,8 +58,8 @@ $.ajax(jamChartSettings).done(function (response) {
   "async": true,
   "crossDomain": true,
   "url": "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA",
-  "method": "GET",
-  "headers": {},
+  "method": "Get",
+  "headers": "{}",
   "data": "{}"
 }
 
@@ -69,7 +70,7 @@ $.ajax(setlistSettings).done(function (response) {
   let slVenue = setListInfo.venue;
   let slLocation = setListInfo.location;
   let slDetails = setListInfo.setlistdata;
- // let slNotes = setListInfo.setlistnotes;
+
   
   
   setListDate.innerText = slDateLong;
