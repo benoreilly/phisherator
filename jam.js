@@ -59,7 +59,7 @@ $.ajax(jamChartSettings).done(function (response) {
   "crossDomain": true,
   "url": "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA",
   "method": "Get",
-  "headers": "{}",
+  "headers": "{Access-Control-Allow-Origin: *}",
   "data": "{}"
 }
 
