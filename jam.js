@@ -84,6 +84,3 @@ $.ajax(setlistSettings).done(function (response) {
   //setListNotes.innerHTML = slNotes;
 
 });
-
-
-

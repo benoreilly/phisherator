@@ -1,4 +1,7 @@
-
+html,
+body {
+  font-family: Google Sans;
+}
 .container {
     margin-top: 60px;
 }
@@ -22,9 +25,6 @@ span.hightlight {
   font-size: 1.3rem;
 } 
 
-#tDate::after {
-  content: " | ";
-}
 
 #tDate::after {
   font-size: 2rem;
@@ -128,5 +128,9 @@ input::-webkit-inner-spin-button {
 .policy a {
   text-transform: none !important;
   color: #26a69a !important;
+}
+
+.policy a:hover {
+  text-decoration: underline;
 }
 
