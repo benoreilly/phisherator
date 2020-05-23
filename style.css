@@ -100,6 +100,29 @@ input::-webkit-inner-spin-button {
   }
 }
 
+/* Spinner*/
+
+.spinner-1:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 35%;
+  right: 50%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 5px solid #a79898;
+  border-top-color: indigo;
+  animation: spinner 0.7s linear infinite;
+  z-index: 1000;
+}
+
+@keyframes spinner {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
 /* Phish.com policy link */
 
 .policy a {

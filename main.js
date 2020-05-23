@@ -1,12 +1,9 @@
 // Define UI vars
 
-
 const jamList = document.querySelector('.collection');
 const filter = document.querySelector('#filter');
 const songInput = document.querySelector('#song');
 const modalTrigger = document.querySelector('.modal-trigger');
-
-
 
 // Get date
 
@@ -14,8 +11,8 @@ let d = new Date();
 let y = d.toLocaleDateString('en-US');
 var today = document.getElementById('tDate').innerText = y;
 
-
 //Get time
+
 myTimer();
 var timeVar = setInterval(myTimer, 1000);
 
@@ -26,9 +23,6 @@ function myTimer() {
     var tTime = document.getElementById('tTime').innerText = t;
 }
 
-
-
-
 // Load event listeners
 
 loadEventListeners();
@@ -37,24 +31,14 @@ function loadEventListeners() {
     filter.addEventListener('keyup', filterTasks);
 }
 
+//Spinner
 
-// Init modal
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     $(document).ready(function(){
-//         $('.modal').modal();
-//     });
-// })
-
-// //Open clear task modal
-
-// function openModal(e){
-//     //var instance = M.Modal.getInstance(elem);
-//     //this.open();   
-//     e.preventDefault();  
-// }
-
-
+var spinner = document.querySelector('.spinner-1');
+var hideSpinner;
+function spinnerFunc() {
+    spinner.style.display = 'none';  
+}
+var hideSpinner = setTimeout(spinnerFunc, 1500);
 
 // Filter tasks
 
@@ -70,21 +54,21 @@ function filterTasks(e){
         }      
     });
 
-        function markFunction(){
-            $("span.context").mark(text);
-                 
-        // unmark
-            $("span.context").unmark({
-                done: function(){
-                    $("span.context").mark(text);
-                }
-            })
-        }
-        markFunction();
+    function markFunction(){
+        $("span.context").mark(text);
+                
+    // unmark
+        $("span.context").unmark({
+            done: function(){
+                $("span.context").mark(text);
+            }
+        })
+    }
+    markFunction();
 }
 
-          
- 
+//CORS
+
 jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;

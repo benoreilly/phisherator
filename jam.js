@@ -65,7 +65,7 @@ $.ajax(jamChartSettings).done(function (response) {
 
 $.ajax(setlistSettings).done(function (response) {
   let setListInfo = response.response.data[0];
-  let slDateShort = setListInfo.short_date;
+  // let slDateShort = setListInfo.short_date;
   let slDateLong = setListInfo.long_date;
   let slVenue = setListInfo.venue;
   let slLocation = setListInfo.location;
