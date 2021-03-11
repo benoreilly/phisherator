@@ -17,7 +17,6 @@ const chartUrl =
 
 $.ajax(`/cors-proxy/${chartUrl}`).done(function (response) {
   var jamInfo = response.response.data;
-  console.log(jamInfo);
   let jamCollection = document.querySelector(".collection");
 
   for (let i = 0; i < jamInfo.length; i++) {
