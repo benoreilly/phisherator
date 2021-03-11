@@ -1,16 +1,4 @@
-// request jamcharts
-
-// var jamChartSettings = {
-//   async: true,
-//   crossDomain: true,
-//   accept: "application/json",
-//   // mode: "cors",
-//   crossOrigin: true,
-//   url: "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
-//   method: "Get",
-//   headers: "{}",
-//   data: "{}",
-// };
+//  jamcharts
 
 const chartUrl =
   "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA";
@@ -42,21 +30,12 @@ $.ajax(`/cors-proxy/${chartUrl}`).done(function (response) {
   }
 });
 
-// request recent setlist
+//  recent setlist
 
 let setListDate = document.querySelector("#setListDate");
 let setListVenue = document.querySelector("#setListVenue");
 let setListLocation = document.querySelector("#setListLocation");
 let setListDetails = document.querySelector("#setListDetails");
-
-// var setlistSettings = {
-//   async: true,
-//   crossDomain: true,
-//   url: "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA",
-//   method: "Get",
-//   headers: "{}",
-//   data: "{}",
-// };
 
 const setListUrl =
   "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA";
