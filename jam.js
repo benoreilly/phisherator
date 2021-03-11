@@ -3,10 +3,12 @@
 var jamChartSettings = {
   async: true,
   crossDomain: true,
-  // "crossOrigin": anonymous,
+  accept: "application/json",
+  mode: "cors",
+  crossOrigin: true,
   url: "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
   method: "Get",
-  headers: "{Access-Control-Allow-Origin: *}",
+  headers: "{}",
   data: "{}",
 };
 
@@ -52,13 +54,12 @@ var setlistSettings = {
   crossDomain: true,
   url: "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA",
   method: "Get",
-  headers: "{Access-Control-Allow-Origin: *}",
+  headers: "{}",
   data: "{}",
 };
 
 $.ajax(setlistSettings).done(function (response) {
   let setListInfo = response.response.data[0];
-  // let slDateShort = setListInfo.short_date;
   let slDateLong = setListInfo.long_date;
   let slVenue = setListInfo.venue;
   let slLocation = setListInfo.location;
@@ -67,10 +68,7 @@ $.ajax(setlistSettings).done(function (response) {
   setListDate.innerText = slDateLong;
 
   setListVenue.innerHTML = slVenue;
-  // console.log(slVenue.getAttributes());
-  //console.log(setListVenue.innerHTML.setAttribute('target', '_blank'));
 
   setListLocation.innerText = slLocation;
   setListDetails.innerHTML = slDetails;
-  //setListNotes.innerHTML = slNotes;
 });

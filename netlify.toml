@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/jam"
+  to = "https://api.phisherator.netlify.app.com"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
