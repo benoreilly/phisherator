@@ -4,7 +4,7 @@ var jamChartSettings = {
   async: true,
   crossDomain: true,
   accept: "application/json",
-  mode: "cors",
+  // mode: "cors",
   crossOrigin: true,
   url: "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
   method: "Get",
@@ -12,7 +12,10 @@ var jamChartSettings = {
   data: "{}",
 };
 
-$.ajax(jamChartSettings).done(function (response) {
+const chartUrl =
+  "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA";
+
+$.ajax(`/cors-proxy/${chartUrl}`).done(function (response) {
   var jamInfo = response.response.data;
   console.log(jamInfo);
   let jamCollection = document.querySelector(".collection");
