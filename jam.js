@@ -1,16 +1,16 @@
 // request jamcharts
 
-var jamChartSettings = {
-  async: true,
-  crossDomain: true,
-  accept: "application/json",
-  // mode: "cors",
-  crossOrigin: true,
-  url: "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
-  method: "Get",
-  headers: "{}",
-  data: "{}",
-};
+// var jamChartSettings = {
+//   async: true,
+//   crossDomain: true,
+//   accept: "application/json",
+//   // mode: "cors",
+//   crossOrigin: true,
+//   url: "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA",
+//   method: "Get",
+//   headers: "{}",
+//   data: "{}",
+// };
 
 const chartUrl =
   "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA";
@@ -47,21 +47,22 @@ $.ajax(`/cors-proxy/${chartUrl}`).done(function (response) {
 
 let setListDate = document.querySelector("#setListDate");
 let setListVenue = document.querySelector("#setListVenue");
-
 let setListLocation = document.querySelector("#setListLocation");
 let setListDetails = document.querySelector("#setListDetails");
-//let setListNotes = document.querySelector('#setListNotes');
 
-var setlistSettings = {
-  async: true,
-  crossDomain: true,
-  url: "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA",
-  method: "Get",
-  headers: "{}",
-  data: "{}",
-};
+// var setlistSettings = {
+//   async: true,
+//   crossDomain: true,
+//   url: "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA",
+//   method: "Get",
+//   headers: "{}",
+//   data: "{}",
+// };
 
-$.ajax(setlistSettings).done(function (response) {
+const setListUrl =
+  "https://api.phish.net/v3/setlists/latest?apikey=824BE3C2264A913D97FA";
+
+$.ajax(`/cors-proxy/${setListUrl}`).done(function (response) {
   let setListInfo = response.response.data[0];
   let slDateLong = setListInfo.long_date;
   let slVenue = setListInfo.venue;
@@ -69,9 +70,7 @@ $.ajax(setlistSettings).done(function (response) {
   let slDetails = setListInfo.setlistdata;
 
   setListDate.innerText = slDateLong;
-
   setListVenue.innerHTML = slVenue;
-
   setListLocation.innerText = slLocation;
   setListDetails.innerHTML = slDetails;
 });
