@@ -1,6 +1,5 @@
 [[redirects]]
-  from = "/jam"
-  to = "https://api.phisherator.netlify.app.com"
+  from = "/cors-proxy/*"
+  to = ":splat"
   status = 200
   force = true
-  headers = {X-From = "Netlify"}
