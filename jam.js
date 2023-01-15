@@ -1,10 +1,20 @@
 //  jamcharts
 
-const chartUrl =
-  "https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA";
+const loadChart = async () => {
+	try {
+		const url =
+			"https://api.phish.net/v3/jamcharts/all?apikey=824BE3C2264A913D97FA";
+		const response = await fetch(url);
+		const data = await response.json();
+		return data;
+	} catch (err) {
+		console.error(err);
+	}
+}
 
-$.ajax(`/cors-proxy/${chartUrl}`).done(function (response) {
-  var jamInfo = response.response.data;
+loadChart().then((data) => {
+
+  var jamInfo = data.response.data;
   let jamCollection = document.querySelector(".collection");
 
   for (let i = 0; i < jamInfo.length; i++) {
@@ -28,7 +38,7 @@ $.ajax(`/cors-proxy/${chartUrl}`).done(function (response) {
 
     jamCollection.appendChild(li);
   }
-});
+}
 
 //  recent setlist
 
