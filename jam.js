@@ -13,7 +13,6 @@ const loadChart = async () => {
 }
 
 loadChart().then((data) => {
-
   var jamInfo = data.response.data;
   let jamCollection = document.querySelector(".collection");
 
@@ -38,7 +37,7 @@ loadChart().then((data) => {
 
     jamCollection.appendChild(li);
   }
-}
+});
 
 //  recent setlist
 
